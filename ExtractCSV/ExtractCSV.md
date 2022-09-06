@@ -80,7 +80,7 @@ Public Function GetTargetFolderPath(RowNumber As Long, ColumnNumber As Long)
     End With
 End Function
 
-'メイン処理部分
+'メイン処理部分 
 Public Function MainProccess()
 
     Dim TargetCSV As Workbook
@@ -118,7 +118,7 @@ Public Function MainProccess()
             ActiveWorkbook.Sheets(1).Cells(ResultLastRow, 1).PasteSpecial Paste:=xlPasteValues
             'コピペした行数を最終行数カウンタに足しておく
             ResultLastRow = ResultLastRow + Selection.Rows.Count
-'===================================================================固定範囲コピペ処理部分はここまで
+            '==========固定範囲コピペ処理部分はここまで
                         
             '使い終わったCSVを閉じる。閉じるときに「保存しますか？」とか出てきてマクロが止まってしまうので
             '確認画面や警告を出さないように抑制→ファイル閉じる→抑制解除を行う
