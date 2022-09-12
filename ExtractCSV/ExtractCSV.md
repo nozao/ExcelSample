@@ -115,7 +115,10 @@ Public Function MainProccess()
             '結果集計用ファイルをアクティブにする
             ResultBook.Activate
             '値のみ貼り付け。結果集計用ファイルもこのマクロ内で作成したのでシート名を指定せず、1枚目のシート(Sheets(1))という指定をする。
-            ActiveWorkbook.Sheets(1).Cells(ResultLastRow, 1).PasteSpecial Paste:=xlPasteValues
+            'B列から貼り付ける。A列にはファイル名を入れるため。
+            ActiveWorkbook.Sheets(1).Cells(ResultLastRow, 2).PasteSpecial Paste:=xlPasteValues
+            'A列にファイル名入れる
+            ActiveWorkbook.Sheets(1).Range("A" & ResultLastRow & ":A" & ResultLastRow + Selection.Rows.Count - 1).Value = CurrentFile.Name
             'コピペした行数を最終行数カウンタに足しておく
             ResultLastRow = ResultLastRow + Selection.Rows.Count
             '==========固定範囲コピペ処理部分はここまで
